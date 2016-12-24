@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html ng-app="my-app">
   <head>
     <meta charset="utf-8">
@@ -31,15 +31,15 @@
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stuff <span class="caret"></span></a>
-              <ul class="dropdown-menu">
+              <!-- <ul class="dropdown-menu">
                 <li><a href="#">Route Network</a></li>
                 <li><a href="#">Trip Tracker</a></li>
                 <li><a href="#">About</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Log Out</a></li>
+                <li><a href="#">Log Out</a></li> -->
                 <!-- <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li> -->
-              </ul>
+              <!-- </ul> -->
             </li>
           </ul>
 
@@ -48,50 +48,27 @@
     </nav>
 
     <div class="container">
-      <h1>¡Hola Mundo!</h1>
-      <input type="text" placeholder="What is your thing?" ng-model="thing" ng-init="name = 'bikeThing'">
+      <div class="row col-md-offset-3 col-xs-11">
+        <h3>My Longtrips: </h3>
+      </div>
+
+      <!-- <input type="text" placeholder="What is your thing?" ng-model="thing" ng-init="name = 'bikeThing'">
       <h1>My thing is: {{ thing }}</h1>
+        <button type="button" class="btn btn-default">Yo</button> -->
 
-      <div ng-controller="LongtripsCtrl as trips">
+      <div ng-controller="LongtripsCtrl as trips" class="containerTrips">
 
-
-        <div>
-          <div ng-repeat="trip in trips.longtripsList() " class="col l6 s12 m7">
-            <div class="card horizontal card-panel hoverable">
-
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p style="font-size: 20px;" >{{ trip.tripName }}</p>
-                  <p>Year: {{ trip.year }}</p>
-                  <p>From {{ trip.origin }}</p>
-                  <p>To: {{ trip.destination }}</p>
-
-                </div>
-              </div>
+          <div ng-repeat="trip in trips.longtripsList() " class="row col-md-6 col-md-offset-3 col-sm-11">
+            <div>
+              <a href="#" class="myButton"> <strong>{{ trip.tripName }}</strong> - {{ trip.year }} ({{ trip.origin }} to {{ trip.destination }})</a>
             </div>
           </div>
-
-        <!-- <div class="input-group input-group-lg">
-          <span class="input-group-addon" id="sizing-addon1">Origin</span>
-          <input type="text" class="form-control"  aria-describedby="sizing-addon1">
-        </div>
-
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon" id="sizing-addon1">Destination</span>
-          <input type="text" class="form-control"  aria-describedby="sizing-addon1">
-        </div>
-
-        <div class="btn-group btn-group-lg"  aria-label="...">
-          <button type="button" class="btn btn-default">GO</button>
-        </div> -->
-
       </div>
     </div>
 
-<!--
-    <div class="mapcontainer">
+    <!-- <div class="mapcontainer">
       <div id="map"></div>
-    </div>  -->
+    </div> -->
 
     <!-- /container -->
 
@@ -116,3 +93,4 @@
     <script>require('app');</script>
   </body>
 </html>
+`
