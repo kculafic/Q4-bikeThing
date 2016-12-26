@@ -28,11 +28,11 @@ body {
 @media (max-width: 350px) {
   .containerTrips {
     height: auto;
-    width: auto;
+    width: 300px;
   }
   .myButton {
-    width: 100;
-  	padding:10px 20px;
+    width: 100%;
+  	padding:5px 10px;
     font-size: x-small;
   }
 }
@@ -49,7 +49,7 @@ body {
 }
 @media (min-width: 1200px) {
   .mapcontainer {
-    width: 1170px;
+    width: 1000px;
   }
 }
 .mapcontainer-fluid {
@@ -69,6 +69,7 @@ body {
 }
 
 .containerTrips {
+  width: auto;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -76,8 +77,8 @@ body {
 }
 
 .myButton {
-
-  width: 500;
+  align-items: center;
+  width: 100%;
 	padding:10px 20px;
 }
 .myButton:hover {
