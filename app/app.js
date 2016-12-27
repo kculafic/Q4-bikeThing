@@ -28,4 +28,8 @@ angular.module('my-app', [uiBootstrap, uiRouter])
       templateUrl: 'views/ltshow.html',
 
     })
+    .state('ltadd', {
+      url: '/ltindex/ltadd',
+      templateUrl: 'views/ltadd.html'
+    })
   }]);
