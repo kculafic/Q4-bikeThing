@@ -7,8 +7,10 @@
 
       <div ng-repeat="trip in trips.longtripsList() " class="row col-md-6 col-md-offset-3 col-sm-11">
         <div>
-          <a href="#" class="myButton"> <strong>{{ trip.tripName }}</strong> - {{ trip.year }} ({{ trip.origin }} to {{ trip.destination }})</a>
+          <a ui-sref-active="active" ui-sref="ltshow({ id: trip.id })" class="myButton"> <strong>{{ trip.tripName }}</strong> - {{ trip.year }} ({{ trip.origin }} to {{ trip.destination }})</a>
         </div>
       </div>
+
+      <div ui-view></div>
   </div>
 </div>

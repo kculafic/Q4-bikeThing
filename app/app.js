@@ -19,8 +19,13 @@ angular.module('my-app', [uiBootstrap, uiRouter])
       url: '/',
       templateUrl: 'views/home.html'
     })
-    .state('longtrips', {
-      url: '/longtrips',
-      templateUrl: 'views/longtrips.html'
+    .state('ltindex', {
+      url: '/ltindex',
+      templateUrl: 'views/ltindex.html'
+    })
+    .state('ltshow', {
+      url: '/ltindex/:id',
+      templateUrl: 'views/ltshow.html',
+
     })
   }]);

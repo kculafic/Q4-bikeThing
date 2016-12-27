@@ -9,15 +9,9 @@ class LongtripsCtrl {
     return this.longtripsSvc.longtripsList();
   }
 
-  longtripGet(){
-    return this.longtripsSvc.longtripGet();
-  }
-
-
-  addLongtrip(tripName, origin, destination, year) {
-    this.longtripsSvc.addLongtrip(tripName, origin, destination, year);
-  }
-
+  // addLongtrip(tripName, origin, destination, year) {
+  //   this.cartSvc.addLongtrip(tripName, origin, destination, year);
+  // }
 }
 
 
