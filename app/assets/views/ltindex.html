@@ -7,19 +7,19 @@
 
       <div ng-repeat="trip in trips.longtripsList() " class="row col-md-6 col-md-offset-3 col-sm-11">
         <div>
-          <a ui-sref-active="active" ui-sref="ltshow({ id: trip.id })" class="myButton"> <strong>{{ trip.tripName }}</strong> - {{ trip.year }} ({{ trip.origin }} to {{ trip.destination }})</a>
+          <a  ui-sref="ltshow({ id: trip.id })" ng-click="trips.longtripGet( trip.id )" class="myButton">
+            <strong>{{ trip.tripName }}</strong> - {{ trip.year }} ({{ trip.origin }} to {{ trip.destination }})
+          </a>
+        </div>
+      </div>
+      <div class="row col-md-6 col-md-offset-3 col-sm-11">
+
+        <div>
+          <a  ui-sref="ltadd" class="myButton"> Add Trip </a>
         </div>
       </div>
 
 
-      <div>
-        <a ui-sref-active="active" ui-sref="ltadd" class="myButton"> <strong> Add Trip </a>
-      </div>
-
-      <div>
-        <h5>Maybe put a map here?</h5>
-      </div>
-
-      <div ui-view></div>
+      <ui-view></ui-view>
   </div>
 </div>

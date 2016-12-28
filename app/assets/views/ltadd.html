@@ -1,55 +1,48 @@
-<div class="containerTrips">
-
+<div class="containerTrips" ng-controller="LongtripCreatorCtrl as tourCreator">
   <form class="form-horizontal">
-<fieldset>
+  <fieldset>
 
-<!-- Form Name -->
-<legend>Form Name</legend>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Text Input</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>
+  <legend>Add A Longtrip</legend>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput">Trip Name</label>
+    <div class="col-md-4">
+      <input id="textinput" name="textinput" type="text" placeholder="Name your trip..." class="form-control input-md" ng-model="tripName">
+    </div>
   </div>
-</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Text Input</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput">Origin</label>
+    <div class="col-md-4">
+    <input id="textinput" name="textinput" type="text" placeholder="eg: Seattle" class="form-control input-md" ng-model="origin">
+    </div>
   </div>
-</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Text Input</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput">Destination</label>
+    <div class="col-md-4">
+    <input id="textinput" name="textinput" type="text" placeholder="eg: Portland" class="form-control input-md" ng-model="destination">
+    </div>
   </div>
-</div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Text Input</label>
-  <div class="col-md-4">
-  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
-  <span class="help-block">help</span>
-  </div>
-</div>
 
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="button1id">Double Button</label>
-  <div class="col-md-8">
-    <button id="button1id" name="button1id" class="btn btn-success">Good Button</button>
-    <button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="textinput">Year</label>
+    <div class="col-md-4">
+    <input id="textinput" name="textinput" type="text" placeholder="eg: 2017" class="form-control input-md" ng-model="year">
+    </div>
   </div>
-</div>
+
+  <div class="form-group">
+    <!-- <label class="col-md-4 control-label" for="button1id">Double Button</label> -->
+    <div class="col-md-8">
+      <!-- <button id="button1id" name="button1id" class="btn btn-success" ng-click="tourCreator.addLongtrip(tripName, origin, destination, year)">Submit</button>
+      <button id="button2id" name="button2id" class="btn btn-danger">Delete</button> -->
+
+      <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button" ng-click="tourCreator.addLongtrip(tripName, origin, destination, year)">Submit »</a>
+    </div>
+  </div>
 
 </fieldset>
 </form>
