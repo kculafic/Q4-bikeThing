@@ -38,6 +38,19 @@ class LongtripsService {
       console.error(err);
     })
   }
+
+  deleteLongtrip(){
+    let localId = this.tour.id;
+    this.$http.delete(`/longtrips/${localId}`)
+    .then((res) => {
+      delete res.id;
+      
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  }
+
 }
 
 LongtripsService.$inject = ['$http'];

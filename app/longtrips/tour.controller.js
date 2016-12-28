@@ -5,9 +5,15 @@ class TourCtrl {
   }
 
   tour() {
-    return this.longtripsSvc.tour; 
+    return this.longtripsSvc.tour;
   }
+
+  deleteLongtrip(){
+    this.longtripsSvc.deleteLongtrip()
+  }
+
 }
+
 
 
 TourCtrl.$inject = ['LongtripsService'];

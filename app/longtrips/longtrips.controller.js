@@ -13,6 +13,7 @@ class LongtripsCtrl {
     this.longtripsSvc.longtripGet(id)
   }
 
+
   //
   //
   // addLongtrip(tripName, origin, destination, year) {
