@@ -7,10 +7,10 @@ class LongtripsService {
       this.longtrips = response.data;
     })
     this.tour = {
-      tripName: 'Thing',
-      origin: 'Seattle',
-      destination: 'Test',
-      year: '2013'
+      // tripName: 'Thing',
+      // origin: 'Seattle',
+      // destination: 'Test',
+      // year: '1987'
     };
   }
 
