@@ -8,11 +8,22 @@ import TourCtrl from './longtrips/tour.controller';
 import LongtripCreatorCtrl from './longtrips/longtrip-creator.controller';
 import LongtripsService from './longtrips/longtrips.service';
 
+import SignUpCtrl from './user/signUp.controller';
+import loginCtrl from './user/login.controller';
+import SignOutCtrl from './user/signOut.controller';
+import AuthService from './user/authentication.service';
+import SignUpService from './user/signUp.service';
+
 angular.module('my-app', [uiBootstrap, uiRouter])
   .service('LongtripsService', LongtripsService)
   .controller('LongtripsCtrl', LongtripsCtrl)
   .controller('TourCtrl', TourCtrl)
   .controller('LongtripCreatorCtrl', LongtripCreatorCtrl)
+  .controller('loginCtrl', loginCtrl)
+  .controller('SignUpCtrl', SignUpCtrl)
+  .controller('SignOutCtrl', SignOutCtrl)
+  .service('SignUpService', SignUpService)
+  .service('AuthService', AuthService)
   .config(['$stateProvider', ($stateProvider) => {
   $stateProvider
     .state('home', {
@@ -35,5 +46,13 @@ angular.module('my-app', [uiBootstrap, uiRouter])
     .state('ltadd', {
       url: '/ltadd',
       templateUrl: 'views/ltadd.html'
+    })
+    .state('createUser', {
+      url: '/newuser',
+      templateUrl: 'views/createUser.html'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'views/login.html'
     })
   }]);
