@@ -13,9 +13,9 @@
 
     <div class="jumbotron">
       <h1>{{ trips.tour().tripName }}</h1>
+      <h3>{{ trips.tour().origin }} to {{ trips.tour().destination }} </h3>
       <p>{{ trips.tour().year }}</p>
-      <p>{{ trips.tour().origin }} to {{ trips.tour().destination }} </p>
-      <p>{{ trips.tour().id }}</p>
+      <!-- <p>{{ trips.tour().id }}</p> -->
       <p>
           <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Go to Longtrips »</a>
 
@@ -24,12 +24,12 @@
       </p>
     </div>
 
-    <div style="width: 90%; float:center; height: 100%">
+    <div style="width: 100%; float:center; height: 100%">
 
      <ng-map zoom="14"  style="height:90%; width:100%" >
        <directions
          draggable="true"
-         travel-mode="CYLCING"
+         travel-mode="DRIVING"
          origin="{{ trips.tour().origin }}"
          destination="{{ trips.tour().destination }}">
        </directions>
