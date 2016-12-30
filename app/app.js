@@ -1,7 +1,8 @@
 import angular from 'angular'
 import uiBootstrap from 'angular-ui-bootstrap'
-
 import uiRouter from 'angular-ui-router'
+
+import ngMap from 'ngmap'
 
 import LongtripsCtrl from './longtrips/longtrips.controller';
 import TourCtrl from './longtrips/tour.controller';
@@ -14,7 +15,7 @@ import SignOutCtrl from './user/signOut.controller';
 import AuthService from './user/authentication.service';
 import SignUpService from './user/signUp.service';
 
-angular.module('my-app', [uiBootstrap, uiRouter])
+angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
   .service('LongtripsService', LongtripsService)
   .controller('LongtripsCtrl', LongtripsCtrl)
   .controller('TourCtrl', TourCtrl)
