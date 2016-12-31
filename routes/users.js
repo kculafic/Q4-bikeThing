@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
@@ -23,7 +24,7 @@ router.get('/users', (req, res, next) => {
     });
 });
 
-router.post('/users', (req, res, next) => {
+router.post('/api/users', (req, res, next) => {
   const { firstName, lastName, email, username, password } = req.body;
 
   if (!firstName || !firstName.trim()) {
@@ -56,7 +57,6 @@ router.post('/users', (req, res, next) => {
       const user = camelizeKeys(rows[0]);
 
       delete user.hashedPassword;
-
       res.send(user);
     })
     .catch((err) => {
