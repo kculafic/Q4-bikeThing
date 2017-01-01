@@ -13,16 +13,17 @@ class AuthService {
       });
   }
 
-  // isSignedIn(email) {
-  //   console.log(this.email);
-  //   this.email;
-  // }
+  isSignedIn(email) {
+    console.log(this.email);
+    this.email;
+  }
 
   signIn(email, password) {
     return this.$http.post('/api/token', { email, password })
       .then((res) => {
         console.log('signed in as someone');
         this.signedIn = true;
+        this.email = this.email;
       })
       .catch((err) => {
       });
@@ -32,6 +33,7 @@ class AuthService {
     return this.$http.delete('/api/token')
       .then(() => {
         this.signedIn = false;
+        this.email = '';
       })
       .catch((err) => {
       });

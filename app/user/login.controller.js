@@ -4,6 +4,7 @@ class loginCtrl {
   }
 
   signIn(email, password) {
+    console.log('controller sign in' + this.email);
     this.authSvc.signIn(email, password);
   }
 
