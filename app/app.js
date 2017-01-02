@@ -42,7 +42,10 @@ angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
     .state('ltshow', {
       url: '/ltindex/:id',
       templateUrl: 'views/ltshow.html'
-
+    })
+    .state('ltsegments', {
+      url: '/ltindex/:id/segments/',
+      templateUrl: 'views/ltsegments.html'
     })
     .state('ltadd', {
       url: '/ltadd',
@@ -56,4 +59,5 @@ angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
       url: '/login',
       templateUrl: 'views/login.html'
     })
+
   }]);
