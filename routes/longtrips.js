@@ -4,10 +4,24 @@ const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
+const jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
-router.get('/longtrips', (_req, res, next) => {
+
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    next();
+  });
+};
+
+
+router.get('/longtrips', authorize, (_req, res, next) => {
   knex('longtrips')
     .orderBy('id')
     // .orderBy('trip_name')
@@ -21,7 +35,7 @@ router.get('/longtrips', (_req, res, next) => {
     });
 });
 
-router.get('/longtrips/:id', (req, res, next) => {
+router.get('/longtrips/:id', authorize, (req, res, next) => {
     knex('longtrips')
     .where('id', req.params.id)
     .first()
@@ -39,7 +53,7 @@ router.get('/longtrips/:id', (req, res, next) => {
     });
 });
 
-router.post('/longtrips', (req, res, next) => {
+router.post('/longtrips', authorize, (req, res, next) => {
   const { tripName, origin, destination, year } = req.body;
 
   if (!tripName || !tripName.trim()) {
@@ -72,7 +86,7 @@ router.post('/longtrips', (req, res, next) => {
     });
 });
 
-router.patch('/longtrips/:id', (req, res, next) => {
+router.patch('/longtrips/:id', authorize, (req, res, next) => {
   knex('longtrips')
     .where('id', req.params.id)
     .first()

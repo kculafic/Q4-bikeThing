@@ -7,10 +7,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const users = require('./routes/users');
+const jwt = require('jsonwebtoken');
+
 // const routeSegments = require('./routes/routeSegments');
 const token = require('./routes/token');
 const longtrips = require('./routes/longtrips');
 const segments = require('./routes/segments');
+
 
 
 const port = process.env.PORT || 8000;

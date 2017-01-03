@@ -4,7 +4,7 @@ class SegmentsCreatorCtrl {
 
   }
 
-  addLongtrip(tripName, origin, destination, year) {
+  addSegment(tripName, origin, destination, year) {
     this.longtripsSvc.addLongtrip(tripName, origin, destination, year);
   }
 }
