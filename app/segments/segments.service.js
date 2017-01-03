@@ -36,8 +36,10 @@ class SegmentsService {
     })
   }
 
+// broken //
   deleteSegment(){
-    let localId = this.tour.id;
+    let localId = this.params;
+    console.log(localId);
     this.$http.delete(`/segments/${localId}`)
     .then((res) => {
       delete res.id;

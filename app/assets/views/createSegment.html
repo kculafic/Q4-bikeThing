@@ -37,17 +37,24 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="password">Elevation</label>
     <div class="col-md-4">
-    <input id="textinput" name="textinput" type="password" placeholder="ex: clownshoes1972" class="form-control input-md" ng-model="totalElevation">
+    <input id="textinput" name="textinput" type="text" placeholder="ex: clownshoes1972" class="form-control input-md" ng-model="totalElevation">
     </div>
   </div>
 
   <div class="form-group">
+    <label class="col-md-4 control-label" for="password">Waypoints</label>
+    <div class="col-md-4">
+    <input id="textinput" name="textinput" type="text" placeholder="ex: clownshoes1972" class="form-control input-md" ng-model="waypoints">
+    </div>
+  </div>
+
+  <div class="form-group" ng-controller="TourCtrl as trips">
     <!-- <label class="col-md-4 control-label" for="button1id">Double Button</label> -->
     <div class="col-md-8">
       <!-- <button id="button1id" name="button1id" class="btn btn-success" ng-click="tourCreator.addLongtrip(tripName, origin, destination, year)">Submit</button>
       <button id="button2id" name="button2id" class="btn btn-danger">Delete</button> -->
 
-      <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button" ng-click="segmentForm.addSegment(date, origin, destination, totalDistance,  totalElevation)">Submit »</a>
+      <a class="btn btn-md btn-primary"  ui-sref="ltsegments" role="button" ng-click="segmentForm.addSegment(date, origin, destination, totalDistance, totalElevation, waypoints)">Submit »</a>
     </div>
   </div>
 

@@ -1,11 +1,11 @@
 class SegmentsCreatorCtrl {
-  constructor(longtripsSvc) {
-    this.longtripsSvc = longtripsSvc;
+  constructor(segmentsSvc) {
+    this.segmentsSvc = segmentsSvc;
 
   }
 
   addSegment(date, origin, destination, totalDistance, totalElevation, waypoints) {
-    this.longtripsSvc.addLongtrip(date, origin, destination, totalDistance, totalElevation, waypoints);
+    this.segmentsSvc.addSegment(date, origin, destination, totalDistance, totalElevation, waypoints);
   }
 }
 

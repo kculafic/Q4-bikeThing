@@ -32,9 +32,8 @@ class LongtripsService {
     })
   }
 
-  deleteLongtrip(){
-    let localId = this.tour.id;
-    this.$http.delete(`/longtrips/${localId}`)
+  deleteLongtrip(newId){
+    this.$http.delete(`/longtrips/${newId}`)
     .then((res) => {
       delete res.id;
 

@@ -7,15 +7,15 @@ class TourCtrl {
 
   tour() {
     const id = this.$state.params.id;
-    this.longtripsSvc.longtripGet(id).then(
-      (res) => {
-        this.tour = res;
-      }
-    );
+    this.longtripsSvc.longtripGet(id)
+      .then((res) => {
+          this.tour = res;
+      });
   }
 
   deleteLongtrip(){
-    this.longtripsSvc.deleteLongtrip()
+    const newId = this.$state.params.id;
+    this.longtripsSvc.deleteLongtrip(newId);
   }
 
 }

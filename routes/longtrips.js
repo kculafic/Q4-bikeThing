@@ -21,7 +21,7 @@ const authorize = function(req, res, next) {
 };
 
 
-router.get('/longtrips', authorize, (_req, res, next) => {
+router.get('/longtrips', (_req, res, next) => {
   knex('longtrips')
     .orderBy('id')
     // .orderBy('trip_name')

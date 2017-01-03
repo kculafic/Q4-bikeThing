@@ -1,15 +1,15 @@
 class SegmentsCtrl {
-  constructor(longtripsSvc) {
-    this.longtripsSvc = longtripsSvc;
+  constructor(segmentsSvc) {
+    this.segmentsSvc = segmentsSvc;
 
   }
 
   segmentList() {
-    return this.longtripsSvc.segmentList();
+    return this.segmentsSvc.segmentList();
   }
 
   deleteSegment(){
-    this.longtripsSvc.deleteSegment()
+    this.segmentsSvc.deleteSegment()
   }
 
 }
