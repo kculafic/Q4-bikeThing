@@ -54,6 +54,10 @@ angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
       url: '/ltindex/:id/segments/',
       templateUrl: 'views/ltsegments.html'
     })
+    .state('createsegment', {
+      url: '/ltindex/:id/segments/add',
+      templateUrl: 'views/createSegment.html'
+    })
     .state('ltadd', {
       url: '/ltadd',
       templateUrl: 'views/ltadd.html'
