@@ -2,9 +2,9 @@
   <div ng-controller="TourCtrl as trip" >
     <div ng-controller="SegmentsCtrl as segments">
     <div class="jumbotron">
-      <h3>{{ trip.tour().tripName }}</h3>
-      <p>{{ trip.tour().origin }} to {{ trip.tour().destination }} </p>
-      <p>{{ trip.tour().year }}</p>
+      <h1>{{ trip.tour.tripName }}</h1>
+      <h3>{{ trip.tour.origin }} to {{ trip.tour.destination }} </h3>
+      <p>{{ trip.tour.year }}</p>
       <a class="btn btn-md btn-primary"  ui-sref="#" role="button">
         Add a segment »
       </a>
