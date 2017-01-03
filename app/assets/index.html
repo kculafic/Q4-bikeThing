@@ -14,6 +14,7 @@
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxVAFMyrxXKVzMG969LwSwVq7sj82YR_I&callback=initMap" async defer></script>
+
     <script src='./ngmaps_scripts/angular.min.js'></script>
     <script src='./ngmaps_scripts/ng-maps.js'></script>
 
@@ -21,24 +22,9 @@
   <body ng-app="ngMap">
     <header ng-include="'templates/navbar.html'"></header>
 
-
-
     <div class="container">
-      <!-- <ui-view></ui-view> -->
       <div ui-view></div>
     </div>
-
-
-    <!-- <div class="mapcontainer">
-      <div id="map"></div>
-    </div> -->
-
-    <!-- /container -->
-
-    <!-- <div id="right-panel">
-      <p>Total Distance: <span id="total"></span></p>
-    </div> -->
-
 
     <footer ng-include="'templates/footer.html'"></footer>
 

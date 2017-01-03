@@ -1,8 +1,10 @@
 class loginCtrl {
-  constructor(authSvc) {
+  constructor(authSvc, $state) {
     this.authSvc = authSvc;
+    this.$state = $state;
     this.email = '';
     this.password = '';
+    this.isSignedIn()
   }
 
   signIn(email, password) {
@@ -11,8 +13,10 @@ class loginCtrl {
   }
 
   isSignedIn() {
-    this.email = this.authSvc.isSignedIn(this.email);
-    return this.email;
+    // this.email = this.authSvc.isSignedIn(this.email);
+    // return this.email;
+    console.log(this.$state);
+
   }
 
 
@@ -20,6 +24,6 @@ class loginCtrl {
 
 
 
-loginCtrl.$inject = ['AuthService'];
+loginCtrl.$inject = ['AuthService', '$state'];
 
 export default loginCtrl;

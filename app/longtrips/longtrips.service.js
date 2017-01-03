@@ -6,12 +6,6 @@ class LongtripsService {
       .then((response) => {
       this.longtrips = response.data;
     })
-    this.tour = {
-      // tripName: 'Thing',
-      // origin: 'Seattle',
-      // destination: 'Test',
-      // year: '1987'
-    };
   }
 
   longtripsList() {
@@ -21,7 +15,6 @@ class LongtripsService {
   longtripGet(id) {
     return this.$http.get(`/longtrips/${id}`)
       .then((res) => {
-        this.tour = res.data;
         return res.data;
       })
       .catch((err) => {
@@ -44,7 +37,7 @@ class LongtripsService {
     this.$http.delete(`/longtrips/${localId}`)
     .then((res) => {
       delete res.id;
-      
+
     })
     .catch((err) => {
       console.error(err);

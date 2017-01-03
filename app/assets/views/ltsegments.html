@@ -1,26 +1,13 @@
 <div class="containerTrips">
   <div ng-controller="TourCtrl as trip" >
-    <!-- <div class="row col-md-offset-3 col-xs-offset-1"> -->
-
-    <!-- </div>
-      <div>
-        <h2>{{ trippyTrips.tour().tripName }}</h2>
-        <h2>{{ trippyTrips.tour().year }}</h2>
-        <h2>({{ trippyTrips.tour().origin }} to {{ trippyTrips.tour().destination }})</h2>
-      </div>
-    </div> -->
     <div ng-controller="SegmentsCtrl as segments">
-
-
-
     <div class="jumbotron">
       <h3>{{ trip.tour().tripName }}</h3>
       <p>{{ trip.tour().origin }} to {{ trip.tour().destination }} </p>
       <p>{{ trip.tour().year }}</p>
-
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">Add a segment »</a>
-      <!-- <p>{{ trippyTrips.tour().id }}</p> -->
-
+      <a class="btn btn-md btn-primary"  ui-sref="#" role="button">
+        Add a segment »
+      </a>
     </div>
 
     <div class="jumbotron" ng-repeat="segment in segments.segmentList() ">
@@ -29,72 +16,15 @@
       <p>{{ segment.totalDistance }} : Miles</p>
       <p>{{ segment.totalElevation }} : totalElevation</p>
       <p>
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">See map for this segment »</a>
+        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">
+          See map for this segment »
+        </a>
       </p>
 
       <p>
         <a class="btn btn-md btn-danger"  ui-sref="#" role="button" ng-click="">Delete this segment</a>
       </p>
     </div>
-
-    <!-- <div class="jumbotron">
-      <h3>Day 2 - 1/2/2017</h3>
-      <p>Bremerton to Somewhere</p>
-      <p>Total distance: 32 miles</p>
-
-
-      <p>
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">See map for this segment »</a>
-      </p>
-
-      <p>
-        <a class="btn btn-md btn-danger"  ui-sref="#" role="button" ng-click="">Delete this segment</a>
-      </p>
-    </div>
-
-    <div class="jumbotron">
-      <h3>Day 3 - 1/2/2017</h3>
-      <p>Somewhere to Somewhereelse</p>
-      <p>Total distance: 72 miles</p>
-
-
-      <p>
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">See map for this segment »</a>
-      </p>
-
-      <p>
-        <a class="btn btn-md btn-danger"  ui-sref="#" role="button" ng-click="">Delete this segment</a>
-      </p>
-
-    </div>
-
-    <div class="jumbotron">
-      <h3>Day 2 - 1/2/2017</h3>
-      <p>Nobody cares</p>
-      <p>Total distance: 32 miles</p>
-
-      <p>
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">See map for this segment »</a>
-      </p>
-
-      <p>
-        <a class="btn btn-md btn-danger"  ui-sref="#" role="button" ng-click="">Delete this segment</a>
-      </p>
-    </div> -->
-
   </div>
-
-    <!-- <div style="width: 100%; float:center; height: 100%">
-     <ng-map zoom="14"  style="height:90%; width:100%" >
-       <directions
-         draggable="true"
-         travel-mode="DRIVING"
-         origin="{{ trippyTrips.tour().origin }}"
-         destination="{{ trippyTrips.tour().destination }}">
-       </directions>
-     </ng-map>
-    </div> -->
-
-
   </div>
 </div>
