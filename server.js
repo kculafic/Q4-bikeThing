@@ -10,6 +10,7 @@ const users = require('./routes/users');
 // const routeSegments = require('./routes/routeSegments');
 const token = require('./routes/token');
 const longtrips = require('./routes/longtrips');
+const segments = require('./routes/segments');
 
 
 const port = process.env.PORT || 8000;
@@ -26,7 +27,7 @@ app.use(morgan('dev'));
 
 
 app.use(users);
-// app.use(routeSegments);
+app.use(segments);
 app.use(token);
 app.use(longtrips);
 
