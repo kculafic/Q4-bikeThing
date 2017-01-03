@@ -11,7 +11,7 @@ class SegmentsService {
     };
   }
 
-  segmentsList() {
+  segmentList() {
     return this.segments;
   }
 

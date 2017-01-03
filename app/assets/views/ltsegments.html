@@ -9,6 +9,8 @@
         <h2>({{ trippyTrips.tour().origin }} to {{ trippyTrips.tour().destination }})</h2>
       </div>
     </div> -->
+    <div ng-controller="SegmentsCtrl as segments">
+
 
 
     <div class="jumbotron">
@@ -21,11 +23,11 @@
 
     </div>
 
-    <div class="jumbotron">
-      <h3>Day 1 - 1/1/2017</h3>
-      <p>Seattle to Bremerton </p>
-      <p>Total distance: 37 miles</p>
-
+    <div class="jumbotron" ng-repeat="segment in segments.segmentList() ">
+      <h3>{{ segment.date }}</h3>
+      <p>{{ segment.origin }} to {{ segment.destination }} </p>
+      <p>{{ segment.totalDistance }} : Miles</p>
+      <p>{{ segment.totalElevation }} : totalElevation</p>
       <p>
         <a class="btn btn-md btn-primary"  ui-sref="#" role="button">See map for this segment »</a>
       </p>
@@ -35,7 +37,7 @@
       </p>
     </div>
 
-    <div class="jumbotron">
+    <!-- <div class="jumbotron">
       <h3>Day 2 - 1/2/2017</h3>
       <p>Bremerton to Somewhere</p>
       <p>Total distance: 32 miles</p>
@@ -78,7 +80,9 @@
       <p>
         <a class="btn btn-md btn-danger"  ui-sref="#" role="button" ng-click="">Delete this segment</a>
       </p>
-    </div>
+    </div> -->
+
+  </div>
 
     <!-- <div style="width: 100%; float:center; height: 100%">
      <ng-map zoom="14"  style="height:90%; width:100%" >

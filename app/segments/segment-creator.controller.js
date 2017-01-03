@@ -4,12 +4,12 @@ class SegmentsCreatorCtrl {
 
   }
 
-  addSegment(tripName, origin, destination, year) {
-    this.longtripsSvc.addLongtrip(tripName, origin, destination, year);
+  addSegment(date, origin, destination, totalDistance, totalElevation, waypoints) {
+    this.longtripsSvc.addLongtrip(date, origin, destination, totalDistance, totalElevation, waypoints);
   }
 }
 
 
-SegmentsCreatorCtrl.$inject = ['LongtripsService'];
+SegmentsCreatorCtrl.$inject = ['SegmentsService'];
 
 export default SegmentsCreatorCtrl;
