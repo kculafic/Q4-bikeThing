@@ -15,6 +15,9 @@ import SignOutCtrl from './user/signOut.controller';
 import AuthService from './user/authentication.service';
 import SignUpService from './user/signUp.service';
 
+import SegmentsCreatorCtrl from './segments/segment-creator.controller';
+import SegmentsService from './segments/segments.service';
+
 angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
   .service('LongtripsService', LongtripsService)
   .controller('LongtripsCtrl', LongtripsCtrl)
@@ -25,6 +28,8 @@ angular.module('my-app', [uiBootstrap, uiRouter, ngMap])
   .controller('SignOutCtrl', SignOutCtrl)
   .service('SignUpService', SignUpService)
   .service('AuthService', AuthService)
+  .service('SegmentsService', SegmentsService)
+  .controller('SegmentsCreatorCtrl', SegmentsCreatorCtrl)
   .config(['$stateProvider', ($stateProvider) => {
   $stateProvider
     .state('home', {

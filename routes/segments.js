@@ -65,7 +65,7 @@ router.patch('/segments/:id', (req, res, next) => {
         throw boom.create(404, 'Not Found');
       }
 
-      const { date, origin, destination, distance  } = req.body;
+      const { date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
       const updateTrip = {};
 
       if (date) {
@@ -80,9 +80,17 @@ router.patch('/segments/:id', (req, res, next) => {
         updateTrip.destination = destination;
       }
 
-      if (distance) {
-        updateTrip.distance = distance;
+      if (totalDistance) {
+        updateTrip.totalDistance = totalDistance;
       }
+
+      if (totalElevation) {
+        updateTrip.totalElevation = totalElevation;
+      }
+      if (waypoints) {
+        updateTrip.waypoints = waypoints;
+      }
+
 
       return knex('routes_segments')
         .update(decamelizeKeys(updateTrip), '*')
