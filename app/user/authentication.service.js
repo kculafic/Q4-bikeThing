@@ -4,6 +4,7 @@ class AuthService {
     this.signedIn = false;
     this.email = '';
 
+
     this.$http.get('/api/token')
       .then((res) => {
         this.signedIn = res.data;
@@ -13,20 +14,19 @@ class AuthService {
       });
   }
 
-  isSignedIn(email) {
-    console.log(this.email);
-    this.email;
-  }
 
   signIn(email, password) {
     return this.$http.post('/api/token', { email, password })
       .then((res) => {
-        console.log('signed in as someone');
         this.signedIn = true;
-        this.email = this.email;
+        this.email = res.data.email;
       })
       .catch((err) => {
       });
+  }
+
+  isSignedIn() {
+    return this.email;
   }
 
   signOut() {

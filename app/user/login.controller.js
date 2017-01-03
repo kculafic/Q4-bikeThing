@@ -1,17 +1,24 @@
 class loginCtrl {
   constructor(authSvc) {
     this.authSvc = authSvc;
+    this.email = '';
+    this.password = '';
   }
 
   signIn(email, password) {
-    console.log('controller sign in' + this.email);
+    this.email = email;
     this.authSvc.signIn(email, password);
   }
 
-  isSignedIn(email) {
-    this.authSvc.isSignedIn(email);
+  isSignedIn() {
+    this.email = this.authSvc.isSignedIn(this.email);
+    return this.email;
   }
+
+
 }
+
+
 
 loginCtrl.$inject = ['AuthService'];
 
