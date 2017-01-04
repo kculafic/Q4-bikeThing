@@ -55,12 +55,12 @@ router.get('/longtrips/:id', (req, res, next) => {
 
 router.get('/longtrips/segments/:id', (req, res, next) => {
   knex('longtrips')
-  .innerJoin('routes_segments', 'longtrips.id', 'routes_segments.trip_id')
+  .innerJoin('routes_segments', 'longtrips.id', 'routes_segments.longtrips_id')
   .where('longtrips.id', req.params.id)
   .then((row) => {
     const rs = camelizeKeys(row);
 
-    res.send(rs); 
+    res.send(rs);
   })
   .catch((err) => {
     next(err);
