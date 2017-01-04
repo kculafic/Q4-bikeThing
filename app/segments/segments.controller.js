@@ -12,10 +12,23 @@ class SegmentsCtrl {
     return this.segmentsSvc.segmentList();
   }
 
-  deleteSegment(id){
-    console.log(id);
-    console.log(this.$state);
+  // longtripGet(id) {
+  //   this.longtripsSvc.longtripGet(id)
+  // }
+
+  segmentGet() {
     console.log(this.$state.params.id);
+    const newId = this.$state.params.id;
+    this.segmentsSvc.segmentGet(newId)
+      .then((res) => {
+          console.log(res);;
+      });
+  }
+
+  deleteSegment(id){
+    // console.log(id);
+    // console.log(this.$state);
+    // console.log(this.$state.params.id);
     this.segmentsSvc.deleteSegment(id)
   }
 

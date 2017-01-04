@@ -16,10 +16,11 @@ class SegmentsService {
   }
 
   segmentGet(id) {
-    return this.$http.get(`/segments/${id}`)
+    return this.$http.get(`/longtrips/segments/${id}`)
       .then((res) => {
-        this.tour = res.data;
-        return res.data;
+        console.log(res);
+        // this.tour = res.data;
+        // return res.data;
       })
       .catch((err) => {
         console.error(err);

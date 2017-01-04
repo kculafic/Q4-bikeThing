@@ -13,7 +13,7 @@ class TourCtrl {
     const id = this.$state.params.id;
     this.longtripsSvc.longtripGet(id)
       .then((res) => {
-          this.tour = res;
+          this.tour = res[0];
       });
   }
 
