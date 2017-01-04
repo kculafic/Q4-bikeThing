@@ -2,27 +2,26 @@ class SegmentsCtrl {
   constructor(segmentsSvc, auth, $state) {
     this.segmentsSvc = segmentsSvc;
     this.$state = $state;
+    this.segments = {
+
+    };
 
     if (!auth.signedIn) {
       $state.go('login');
     }
   }
 
-  segmentList() {
-    return this.segmentsSvc.segmentList();
+  segmentsList() {
+    return this.segmentsSvc.segmentsList();
   }
 
-  // longtripGet(id) {
-  //   this.longtripsSvc.longtripGet(id)
-  // }
 
   segmentGet() {
-    console.log(this.$state.params.id);
     const newId = this.$state.params.id;
     this.segmentsSvc.segmentGet(newId)
       .then((res) => {
-          console.log(res);;
-      });
+          this.segments = res;
+      })
   }
 
   deleteSegment(id){

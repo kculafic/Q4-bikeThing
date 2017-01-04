@@ -7,23 +7,25 @@
       <p>{{ trip.tour.year }}</p>
 
       <p>
-        <a class="btn btn-md btn-primary"  ui-sref="createsegment" role="button">
-        Add a segment »
-      </a>
+        <a class="btn btn-md btn-primary"  ui-sref="createsegment" role="button">Add a segment »</a>
       </p>
 
       <p>
         <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a>
       </p>
+
+      <p>
+        <a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View Segments</a>
+      </p>
     </div>
 
-    <div class="jumbotron" ng-repeat="segment in segments.segmentGet() ">
-      <h3>{{ segment.date }}</h3>
+    <div class="jumbotron" ng-repeat="segment in segments.segments | orderBy: 'created_at':true ">
+      <h3>{{ segment.date | date : "MM/dd/yyyy"}}</h3>
       <p>{{ segment.origin }} to {{ segment.destination }} </p>
-      <p>{{ segment.totalDistance }} : Miles</p>
+      <p>{{ segment.totalDistance }} Miles</p>
       <p>{{ segment.totalElevation }} : totalElevation</p>
       <p>
-        <a class="btn btn-md btn-primary"  ui-sref="#" role="button">
+        <a class="btn btn-md btn-primary" ng-click="showmap=true" ui-sref="#" role="button">
           See map for this segment »
         </a>
       </p>
@@ -31,7 +33,19 @@
       <p>
         <a class="btn btn-md btn-danger"  ui-sref="ltsegments" role="button" ng-click="segments.deleteSegment()">Delete this segment</a>
       </p>
-    </div>
+
+      <div style="width: 100%; float:center; height: 100%">
+
+       <ng-map zoom="14"  style="height:90%; width:100%" >
+         <directions
+           draggable="true"
+           travel-mode="DRIVING"
+           origin="{{ segment.origin }}"
+           destination="{{ segment.destination }}">
+         </directions>
+       </ng-map>
+      </div>
+
   </div>
   </div>
 </div>

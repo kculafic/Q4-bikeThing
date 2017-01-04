@@ -2,25 +2,26 @@ class SegmentsService {
 
   constructor($http) {
     this.$http = $http;
-    this.segments = this.$http.get('/segments')
-      .then((response) => {
-      this.segments = response.data;
-    })
-    this.tour = {
+
+
+    // this.segments = this.$http.get('/segments')
+    //   .then((response) => {
+    //   this.segments = response.data;
+    // })
+    this.segments = {
 
     };
   }
 
-  segmentList() {
+  segmentsList() {
     return this.segments;
   }
 
   segmentGet(id) {
     return this.$http.get(`/longtrips/segments/${id}`)
       .then((res) => {
-        console.log(res);
-        // this.tour = res.data;
-        // return res.data;
+        this.segments = res.data;
+        return res.data;
       })
       .catch((err) => {
         console.error(err);
