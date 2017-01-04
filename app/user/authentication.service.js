@@ -1,7 +1,7 @@
 class AuthService {
   constructor($http) {
     this.$http = $http;
-    this.signedIn = false;
+    this.signedIn = JSON.parse(localStorage.getItem('signedIn') || 'false');
     this.email = '';
     this.$http.get('/api/token')
       .then((res) => {
@@ -17,6 +17,7 @@ class AuthService {
       .then((res) => {
         localStorage.setItem('email', res.data.email)
         this.signedIn = true;
+        localStorage.setItem('signedIn', true);
         this.email = res.data.email;
       })
       .catch((err) => {
@@ -31,6 +32,7 @@ class AuthService {
     return this.$http.delete('/api/token')
       .then(() => {
         localStorage.setItem('email', '')
+        localStorage.setItem('signedIn', false);
         this.signedIn = false;
         this.email = '';
       })

@@ -8,7 +8,10 @@ class loginCtrl {
 
   signIn(email, password) {
     this.email = email;
-    this.authSvc.signIn(email, password);
+    this.authSvc.signIn(email, password)
+      .then(() => {
+        this.$state.go('ltindex')
+      });
   }
 
   isSignedIn() {

@@ -1,8 +1,11 @@
 class LongtripsCtrl {
-  constructor(longtripsSvc) {
+  constructor(longtripsSvc, auth, $state) {
     this.longtripsSvc = longtripsSvc;
     // this.cartSvc = cartSvc;
     // this.longtrips = [];
+    if (!auth.signedIn) {
+      $state.go('login');
+    }
   }
 
   longtripsList() {
@@ -23,6 +26,6 @@ class LongtripsCtrl {
 }
 
 
-LongtripsCtrl.$inject = ['LongtripsService'];
+LongtripsCtrl.$inject = ['LongtripsService', 'AuthService', '$state'];
 
 export default LongtripsCtrl;

@@ -1,8 +1,12 @@
 class TourCtrl {
-  constructor(longtripsSvc, $state) {
+  constructor(longtripsSvc, auth, $state) {
     this.longtripsSvc = longtripsSvc;
     this.$state = $state;
     this.tour();
+
+    if (!auth.signedIn) {
+      $state.go('login');
+    }
   }
 
   tour() {
@@ -22,6 +26,6 @@ class TourCtrl {
 
 
 
-TourCtrl.$inject = ['LongtripsService', '$state'];
+TourCtrl.$inject = ['LongtripsService', 'AuthService', '$state'];
 
 export default TourCtrl;
