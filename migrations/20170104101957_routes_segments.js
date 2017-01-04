@@ -1,7 +1,7 @@
- 
 exports.up = function(knex) {
   return knex.schema.createTable('routes_segments', (table) => {
     table.increments('id');
+    table.integer('trip_id').notNullable().references('id').inTable('longtrips').index().onDelete('CASCADE');
     table.date('date');
     table.string('origin').notNullable().defaultTo('');
     table.string('destination').notNullable().defaultTo('');

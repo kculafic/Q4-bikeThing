@@ -22,6 +22,7 @@ const authorize = function(req, res, next) {
 
 
 router.get('/longtrips', (_req, res, next) => {
+
   knex('longtrips')
     .orderBy('id')
     // .orderBy('trip_name')
@@ -35,10 +36,9 @@ router.get('/longtrips', (_req, res, next) => {
     });
 });
 
-router.get('/longtrips/:id', authorize, (req, res, next) => {
+router.get('/longtrips/:id', (req, res, next) => {
     knex('longtrips')
-    .where('id', req.params.id)
-    .first()
+    .where('longtrips.id', req.params.id)
     .then((row) => {
       if (!row) {
         throw boom.create(404, 'Not Found');
@@ -51,6 +51,20 @@ router.get('/longtrips/:id', authorize, (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+});
+
+router.get('/longtrips/segments/:id', (req, res, next) => {
+  knex('longtrips')
+  .innerJoin('routes_segments', 'longtrips.id', 'routes_segments.trip_id')
+  .where('longtrips.id', req.params.id)
+  .then((row) => {
+    const rs = camelizeKeys(row);
+
+    res.send(rs); 
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 router.post('/longtrips', authorize, (req, res, next) => {

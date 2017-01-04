@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
  return knex.schema.createTable('longtrips', (table) => {
    table.increments('id');

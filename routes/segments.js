@@ -19,7 +19,7 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/segments', authorize, (_req, res, next) => {
+router.get('/segments', (_req, res, next) => {
   knex('routes_segments')
     .orderBy('id')
     // .orderBy('trip_name')
@@ -33,7 +33,7 @@ router.get('/segments', authorize, (_req, res, next) => {
     });
 });
 
-router.get('/segments/:id', authorize, (req, res, next) => {
+router.get('/segments/:id', (req, res, next) => {
     knex('routes_segments')
     .where('id', req.params.id)
     .first()

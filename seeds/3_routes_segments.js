@@ -5,6 +5,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('routes_segments').insert([{
         id: 1,
+        trip_id: 1,
         date: '01/01/2017',
         origin: 'Bremerton, WA',
         destination: 'Twanoh State Park, WA',
@@ -13,11 +14,21 @@ exports.seed = function(knex) {
         waypoints: '',
       }, {
         id: 2,
+        trip_id: 1,
         date: '01/02/2017',
         origin: 'Twanoh State Park, WA',
         destination: 'Elma, WA',
         total_distance: '42',
         total_elevation: '1083',
+        waypoints: '',
+      }, {
+        id: 3,
+        trip_id: 2,
+        date: '01/02/2017',
+        origin: 'Poulsbo, WA',
+        destination: 'Port Angeles, WA',
+        total_distance: '7',
+        total_elevation: '900',
         waypoints: '',
       }]);
     })
