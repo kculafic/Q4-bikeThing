@@ -13,9 +13,9 @@
           <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button">See multi-day segments »</a>
         </p>
 
-          <p>
-            <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this trash</a>
-          </p>
+        <p>
+          <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this trash</a>
+        </p>
 
       </p>
     </div>
@@ -28,29 +28,29 @@
 
       <div  ng-repeat="segment in segments.segments | orderBy: 'created_at':true ">
 
-      <!-- <p>{{ segment.destination }}</p> -->
-      <p>
-         { location: { {{segment.destination}} }, stopover: true },
-      </p>
+        <!-- <p>{{ segment.destination }}</p> -->
+        <p>
+          {{ segment.waypoints }}
+        </p>
 
-<!-- ng-repeat="segment.destination in segments.segments" -->
+        <!-- ng-repeat="segment.destination in segments.segments" -->
 
-<!-- waypoints= "[{ location: { {{segment.destination}} }, stopover: true }, ]" -->
+        <!-- waypoints= "[{ location: { {{segment.destination}} }, stopover: true }, ]" -->
 
-  </div>
-<!--  waypoints="{{ segment.destination }}" -->
+      </div>
+      <!--  waypoints="{{ segment.destination }}" -->
       <div ng-app="ngWayTest">
         <ng-map zoom="14"  style="height:90%; width:100%">
           <directions
           draggable="true"
           travel-mode="BICYCLING"
-          waypoints="[{location: {lat:47.3779132, lng: -122.9729889}, stopover: true}]"
+          waypoints="{{ segments.waypoints }}"
           origin="{{ trips.tour.origin }}"
           destination="{{ trips.tour.destination }}">
         </directions>
       </ng-map>
 
-      </div>
     </div>
   </div>
+</div>
 </div>

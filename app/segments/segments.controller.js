@@ -5,6 +5,7 @@ class SegmentsCtrl {
     this.segments = {
 
     };
+    this.waypoints = [];
 
     if (!auth.signedIn) {
       $state.go('login');
@@ -19,11 +20,29 @@ class SegmentsCtrl {
   segmentGet() {
     const newId = this.$state.params.id;
     this.segmentsSvc.segmentGet(newId)
-      .then((res) => {
-          this.segments = res;
-          console.log(newId);
-          console.log(this.segments.destination);
-      })
+    .then((res) => {
+      // console.log(res);
+      this.segments = res;
+      // console.log(newId);
+      // console.log(this.segments);
+      let revSeg = this.segments.reverse();
+      console.log(revSeg);
+      for (let i = 0; i < revSeg.length - 1; i++) {
+
+        // let parsedSeg = JSON.parse(revSeg[i]);
+        //console.log(parsedSeg);
+        let newObj = {
+          location: {
+            lat: revSeg[i].waypoints.lat,
+            lng: revSeg[i].waypoints.lng
+          } ,
+          stopover: true
+        };
+        console.log(newObj);
+        this.waypoints.push(newObj);
+      }
+
+    })
   }
 
 
