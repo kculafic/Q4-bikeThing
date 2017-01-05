@@ -21,7 +21,8 @@ class SegmentsCtrl {
     this.segmentsSvc.segmentGet(newId)
       .then((res) => {
           this.segments = res;
-          console.log(this.segments);
+          console.log(newId);
+          console.log(this.segments.destination);
       })
   }
 

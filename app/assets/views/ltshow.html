@@ -19,16 +19,38 @@
 
       </p>
     </div>
-    <div style="width: 100%; float:center; height: 100%">
+    <div ng-controller="SegmentsCtrl as segments" style="width: 100%; float:center; height: 100%">
 
-     <ng-map zoom="14"  style="height:90%; width:100%" >
-       <directions
-         draggable="true"
-         travel-mode="DRIVING"
-         origin="{{ trips.tour.origin }}"
-         destination="{{ trips.tour.destination }}">
-       </directions>
-     </ng-map>
-   </div>
+
+      <p>
+        <a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View map</a>
+      </p>
+
+      <div  ng-repeat="segment in segments.segments | orderBy: 'created_at':true ">
+
+      <!-- <p>{{ segment.destination }}</p> -->
+      <p>
+         { location: { {{segment.destination}} }, stopover: true },
+      </p>
+
+<!-- ng-repeat="segment.destination in segments.segments" -->
+
+<!-- waypoints= "[{ location: { {{segment.destination}} }, stopover: true }, ]" -->
+
+  </div>
+<!--  waypoints="{{ segment.destination }}" -->
+      <div ng-app="ngWayTest">
+        <ng-map zoom="14"  style="height:90%; width:100%">
+          <directions
+          draggable="true"
+          travel-mode="DRIVING"
+
+          origin="{{ trips.tour.origin }}"
+          destination="{{ trips.tour.destination }}">
+        </directions>
+      </ng-map>
+
+      </div>
+    </div>
   </div>
 </div>
