@@ -21,15 +21,14 @@ class SegmentsCtrl {
     this.segmentsSvc.segmentGet(newId)
       .then((res) => {
           this.segments = res;
+          console.log(this.segments);
       })
   }
 
 
 
   deleteSegment(id){
-    // console.log(id);
-    // console.log(this.$state);
-    // console.log(this.$state.params.id);
+    console.log(id);
     this.segmentsSvc.deleteSegment(id)
   }
 

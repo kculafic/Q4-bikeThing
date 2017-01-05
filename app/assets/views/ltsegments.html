@@ -23,15 +23,17 @@
       <h3>{{ segment.date | date : "MM/dd/yyyy"}}</h3>
       <p>{{ segment.origin }} to {{ segment.destination }} </p>
       <p>{{ segment.totalDistance }} Miles</p>
-      <p>{{ segment.totalElevation }} : totalElevation</p>
-      <p>
+      <!-- <p>{{ segment.totalElevation }} : totalElevation</p> -->
+
+
+      <!-- <p>
         <a class="btn btn-md btn-primary" ng-click="showmap=true" ui-sref="#" role="button">
           See map for this segment »
         </a>
-      </p>
+      </p> -->
 
       <p>
-        <a class="btn btn-md btn-danger"  ui-sref="ltsegments" role="button" ng-click="segments.deleteSegment()">Delete this segment</a>
+        <a class="btn btn-md btn-danger"  ui-sref="ltsegments({ id: trips.tour.id })" role="button" ng-click="segments.deleteSegment( segment.id )">Delete this segment</a>
       </p>
 
       <div style="width: 100%; float:center; height: 100%">

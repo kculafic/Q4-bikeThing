@@ -39,11 +39,12 @@ class SegmentsService {
   }
 
 // broken //
-  deleteSegment(){
-    let localId = this.params;
-    console.log(localId);
-    this.$http.delete(`/segments/${localId}`)
+  deleteSegment(id){
+    // let localId = this.params;
+    // console.log(localId);
+    this.$http.delete(`/segments/${id}`)
     .then((res) => {
+      console.log(res.data);
       delete res.id;
 
     })

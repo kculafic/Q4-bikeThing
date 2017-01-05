@@ -6,10 +6,8 @@ class SegmentsCreatorCtrl {
 
   addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints) {
     // console.log(this.$state.params.id);
-    // const longtripsId = this.$state.params.id;
-
-    console.log('controller' , longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints);
-
+    longtripsId = this.$state.params.id;
+    
     this.segmentsSvc.addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints);
   }
 

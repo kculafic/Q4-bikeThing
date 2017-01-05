@@ -118,7 +118,7 @@ router.patch('/segments/:id', authorize, (req, res, next) => {
     });
 });
 
-router.delete('/segments/:id', authorize, (req, res, next) => {
+router.delete('/segments/:id', (req, res, next) => {
   let trip;
 
   knex('routes_segments')
