@@ -1,15 +1,25 @@
 class SegmentsCreatorCtrl {
-  constructor(segmentsSvc) {
+  constructor(segmentsSvc, $state) {
     this.segmentsSvc = segmentsSvc;
-
+    this.$state = $state;
   }
 
-  addSegment(date, origin, destination, totalDistance, totalElevation, waypoints) {
-    this.segmentsSvc.addSegment(date, origin, destination, totalDistance, totalElevation, waypoints);
+  addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints) {
+    // console.log(this.$state.params.id);
+    // const longtripsId = this.$state.params.id;
+
+    console.log('controller' , longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints);
+
+    this.segmentsSvc.addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints);
   }
+
+  // addSegment(date, origin, destination, totalDistance, totalElevation, waypoints) {
+  //   this.segmentsSvc.addSegment(date, origin, destination, totalDistance, totalElevation, waypoints);
+  // }
+
 }
 
 
-SegmentsCreatorCtrl.$inject = ['SegmentsService'];
+SegmentsCreatorCtrl.$inject = ['SegmentsService', '$state'];
 
 export default SegmentsCreatorCtrl;

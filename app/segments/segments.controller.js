@@ -24,6 +24,8 @@ class SegmentsCtrl {
       })
   }
 
+
+
   deleteSegment(id){
     // console.log(id);
     // console.log(this.$state);

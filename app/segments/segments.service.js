@@ -28,8 +28,8 @@ class SegmentsService {
       });
   }
 
-  addSegment(date, origin, destination, totalDistance, totalElevation, waypoints) {
-    this.$http.post('/segments', { date, origin, destination, totalDistance, totalElevation, waypoints  })
+  addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints) {
+    this.$http.post('/segments/', { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints  })
     .then((res) => {
       this.segments.push(res.data)
     })

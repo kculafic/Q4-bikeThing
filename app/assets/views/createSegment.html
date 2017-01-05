@@ -6,6 +6,13 @@
   <legend>Log a Segment</legend>
 
   <div class="form-group">
+    <label class="col-md-4 control-label" for="first_name">Longtrip_id</label>
+    <div class="col-md-4">
+      <input id="textinput" name="textinput" type="text" placeholder="ex: 1/1/2017" class="form-control input-md" ng-model="longtripsId">
+    </div>
+  </div>
+
+  <div class="form-group">
     <label class="col-md-4 control-label" for="first_name">Date</label>
     <div class="col-md-4">
       <input id="textinput" name="textinput" type="text" placeholder="ex: 1/1/2017" class="form-control input-md" ng-model="date">
@@ -54,7 +61,7 @@
       <!-- <button id="button1id" name="button1id" class="btn btn-success" ng-click="tourCreator.addLongtrip(tripName, origin, destination, year)">Submit</button>
       <button id="button2id" name="button2id" class="btn btn-danger">Delete</button> -->
 
-      <a class="btn btn-md btn-primary"  ui-sref="ltsegments" role="button" ng-click="segmentForm.addSegment(date, origin, destination, totalDistance, totalElevation, waypoints)">Submit »</a>
+      <a class="btn btn-md btn-primary"  ui-sref="ltsegments" role="button" ng-click="segmentForm.addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints)">Submit »</a>
     </div>
   </div>
 

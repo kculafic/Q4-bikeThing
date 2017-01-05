@@ -51,10 +51,10 @@ router.get('/segments/:id', (req, res, next) => {
     });
 });
 
-router.post('/segments', authorize, (req, res, next) => {
-  const { date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
+router.post('/segments', (req, res, next) => {
+  const { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
 
-  const segment = { date, origin, destination, totalDistance, totalElevation, waypoints };
+  const segment = { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints };
 
   knex('routes_segments')
     .insert(decamelizeKeys(segment), '*')
@@ -77,7 +77,7 @@ router.patch('/segments/:id', authorize, (req, res, next) => {
         throw boom.create(404, 'Not Found');
       }
 
-      const { date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
+      const { longtripsID, date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
       const updateTrip = {};
 
       if (date) {
