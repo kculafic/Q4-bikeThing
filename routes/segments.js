@@ -5,6 +5,8 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
+require('dotenv').config();
 
 const router = express.Router();
 
@@ -52,20 +54,30 @@ router.get('/segments/:id', (req, res, next) => {
 });
 
 router.post('/segments', (req, res, next) => {
-  const { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints } = req.body;
+  const { longtripsId, date, origin, destination, totalDistance, totalElevation } = req.body;
 
-  const segment = { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints };
-
-  knex('routes_segments')
-    .insert(decamelizeKeys(segment), '*')
-    .then((rows) => {
-      const insertSegment = camelizeKeys(rows[0]);
-
-      res.send(insertSegment);
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${destination}&key=${process.env.GOOGLE_API_KEY}`;
+  axios.get(url)
+    .then(response => {
+      return response.data;
     })
-    .catch((err) => {
-      next(err);
-    });
+    .then(data => {
+      return JSON.stringify(data.results[0].geometry.location);
+    })
+    .then(waypoints =>{
+      const segment = { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints };
+
+      return knex('routes_segments')
+        .insert(decamelizeKeys(segment), '*')
+        .then((rows) => {
+          const insertSegment = camelizeKeys(rows[0]);
+
+          res.send(insertSegment);
+        })
+        .catch((err) => {
+          next(err);
+        });
+    })
 });
 
 router.patch('/segments/:id', authorize, (req, res, next) => {

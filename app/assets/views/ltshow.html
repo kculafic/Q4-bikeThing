@@ -43,8 +43,8 @@
         <ng-map zoom="14"  style="height:90%; width:100%">
           <directions
           draggable="true"
-          travel-mode="DRIVING"
-
+          travel-mode="BICYCLING"
+          waypoints="[{location: {lat:47.3779132, lng: -122.9729889}, stopover: true}]"
           origin="{{ trips.tour.origin }}"
           destination="{{ trips.tour.destination }}">
         </directions>
