@@ -23,7 +23,7 @@ class SegmentsCtrl {
     .then((res) => {
       // console.log(res);
       this.segments = res;
-      console.log(this.segments);
+      // console.log(this.segments);
       // console.log(newId);
       // console.log(this.segments);
       // this.segments.reverse();
@@ -45,7 +45,7 @@ class SegmentsCtrl {
 
 
   deleteSegment(id){
-    console.log(id);
+    // console.log(id);
     this.segmentsSvc.deleteSegment(id)
   }
 
