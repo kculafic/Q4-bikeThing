@@ -62,7 +62,7 @@ router.post('/segments', (req, res, next) => {
       return response.data;
     })
     .then(data => {
-      // console.log(data.results[0].geometry.location);
+      console.log(data.results[0].geometry.location);
       return JSON.stringify({
         location: data.results[0].geometry.location,
         stopover: true
