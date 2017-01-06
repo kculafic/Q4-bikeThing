@@ -62,13 +62,14 @@ router.post('/segments', (req, res, next) => {
       return response.data;
     })
     .then(data => {
-      console.log(data.results[0].geometry.location);
+      // console.log(data.results[0].geometry.location);
       return JSON.stringify({
         location: data.results[0].geometry.location,
         stopover: true
       });
     })
     .then(waypoints =>{
+      console.log(waypoints);
       const segment = { longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints };
 
       return knex('routes_segments')

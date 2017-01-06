@@ -1,56 +1,58 @@
 <div class="containerTrips">
   <div ng-controller="TourCtrl as trips" >
-    <div class="jumbotron">
-      <h1>{{ trips.tour.tripName }}</h1>
-      <h3>{{ trips.tour.origin }} to {{ trips.tour.destination }} </h3>
-      <p>{{ trips.tour.year }}</p>
-      <p>
-        <p>
-          <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a>
-        </p>
-
-        <p>
-          <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button">See multi-day segments »</a>
-        </p>
-
-        <p>
-          <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this trash</a>
-        </p>
-
-      </p>
-    </div>
     <div ng-controller="SegmentsCtrl as segments" style="width: 100%; float:center; height: 100%">
-
-
-      <p>
-        <a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View map</a>
-      </p>
-
-      <div  ng-repeat="segment in segments.segments | orderBy: 'created_at':true ">
-
-        <!-- <p>{{ segment.destination }}</p> -->
+      <div class="jumbotron">
+        <h1>{{ trips.tour.tripName }}</h1>
+        <h3>{{ trips.tour.origin }} to {{ trips.tour.destination }} </h3>
+        <p>{{ trips.tour.year }}</p>
         <p>
-          {{ segment.waypoints }}
+          <p>
+            <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a>
+          </p>
+
+          <p>
+            <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button">See multi-day segments »</a>
+          </p>
+
+          <p>
+            <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this trash</a>
+          </p>
+
+          <p>
+            <a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View map</a>
+          </p>
+
+
+
+
         </p>
 
-        <!-- ng-repeat="segment.destination in segments.segments" -->
-
-        <!-- waypoints= "[{ location: { {{segment.destination}} }, stopover: true }, ]" -->
+        <!-- <div  >
+          <ng-map zoom="14"  style="height:90%; width:100%">
+            <directions
+            draggable="true"
+            travel-mode="BICYCLING"
+            waypoints="{{segments.getWaypoints()}}"
+            origin="{{ trips.tour.origin }}"
+            destination="{{ trips.tour.destination }}">
+          </directions>
+        </ng-map>
+      </div> -->
 
       </div>
-      <!--  waypoints="{{ segment.destination }}" -->
-      <div ng-app="ngWayTest">
-        <ng-map zoom="14"  style="height:90%; width:100%">
-          <directions
-          draggable="true"
-          travel-mode="BICYCLING"
-          waypoints="{{ segments.waypoints }}"
-          origin="{{ trips.tour.origin }}"
-          destination="{{ trips.tour.destination }}">
-        </directions>
-      </ng-map>
 
-    </div>
-  </div>
+  <div>
+    <ng-map zoom="14"  style="height:90%; width:100%">
+      <directions
+      draggable="true"
+      travel-mode="BICYCLING"
+      waypoints="{{segments.getWaypoints()}}"
+      origin="{{ trips.tour.origin }}"
+      destination="{{ trips.tour.destination }}">
+    </directions>
+  </ng-map>
+
+</div>
+</div>
 </div>
 </div>

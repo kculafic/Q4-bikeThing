@@ -23,26 +23,23 @@ class SegmentsCtrl {
     .then((res) => {
       // console.log(res);
       this.segments = res;
+      console.log(this.segments);
       // console.log(newId);
       // console.log(this.segments);
-      let revSeg = this.segments.reverse();
-      console.log(revSeg);
-      for (let i = 0; i < revSeg.length - 1; i++) {
-
-        // let parsedSeg = JSON.parse(revSeg[i]);
-        //console.log(parsedSeg);
-        let newObj = {
-          location: {
-            lat: revSeg[i].waypoints.lat,
-            lng: revSeg[i].waypoints.lng
-          } ,
-          stopover: true
-        };
-        console.log(newObj);
-        this.waypoints.push(newObj);
-      }
-
+      // this.segments.reverse();
+      const latLongList = this.segments.map(segment => JSON.parse(segment.waypoints));
+      this.waypoints = latLongList;
     })
+    .catch((err) => {
+      console.error(err);
+    })
+  }
+
+  getWaypoints() {
+    // this.segments.reverse();
+    console.log(this.segments);
+    console.log(this.waypoints);
+    return this.waypoints;
   }
 
 
