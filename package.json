@@ -9,7 +9,7 @@
     "url": ""
   },
   "scripts": {
-    "heroku-postbuild": "knex migrate:latest",
+    "heroku-postbuild": "brunch build --production; knex migrate:latest",
     "knex": "knex",
     "lint": "eslint --ext .js --ignore-pattern public",
     "nodemon": "nodemon server.js",
