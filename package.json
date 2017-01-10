@@ -9,9 +9,14 @@
     "url": ""
   },
   "scripts": {
+    "heroku-postbuild": "knex migrate:latest",
     "knex": "knex",
     "lint": "eslint --ext .js --ignore-pattern public",
+    "nodemon": "nodemon server.js",
     "start": "brunch watch --server"
+  },
+  "engines": {
+  "node": "6.6.0"
   },
   "dependencies": {
     "angular": "^1.5.8",
