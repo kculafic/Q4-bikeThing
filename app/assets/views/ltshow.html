@@ -19,7 +19,7 @@
           </p>
 
           <p>
-            <a class="btn btn-md btn-success"  ng-click="segments.segmentGet() | orderBy: 'created_at':true" role="button">View map</a>
+            <a class="btn btn-md btn-success"  ng-click="segments.segmentGet() " role="button">View map</a>
           </p>
 
 
@@ -46,7 +46,7 @@
       <directions
       draggable="true"
       travel-mode="BICYCLING"
-      waypoints="{{segments.getWaypoints()}}"
+      waypoints="{{segments.getWaypoints() | orderBy: 'id'}}"
       origin="{{ trips.tour.origin }}"
       destination="{{ trips.tour.destination }}">
     </directions>
