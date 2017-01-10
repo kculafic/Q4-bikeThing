@@ -46,7 +46,7 @@
       <directions
       draggable="true"
       travel-mode="BICYCLING"
-      waypoints="{{segments.getWaypoints() | orderBy: 'id'}}"
+      waypoints="{{segments.getWaypoints() | orderBy: 'created_at':true}}"
       origin="{{ trips.tour.origin }}"
       destination="{{ trips.tour.destination }}">
     </directions>
