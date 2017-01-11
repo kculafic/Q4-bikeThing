@@ -1,60 +1,43 @@
 <div class="containerTrips" ng-controller="SegmentsCreatorCtrl as segmentForm">
   <form class="form-horizontal">
-  <fieldset>
+    <fieldset>
 
+      <legend>Create a New Segment</legend>
 
-  <legend>Create a New Segment</legend>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="first_name">Date</label>
+        <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="ex: 1/1/2017" class="form-control input-md" ng-model="date">
+        </div>
+      </div>
 
-  <!-- <div class="form-group">
-    <label class="col-md-4 control-label" for="first_name">Longtrip_id</label>
-    <div class="col-md-4">
-      <input id="textinput" name="textinput" type="text" placeholder="ex: 1/1/2017" class="form-control input-md" ng-model="longtripsId">
-    </div>
-  </div> -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="last_name">Origin</label>
+        <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="ex: Seattle, WA" class="form-control input-md" ng-model="origin">
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="first_name">Date</label>
-    <div class="col-md-4">
-      <input id="textinput" name="textinput" type="text" placeholder="ex: 1/1/2017" class="form-control input-md" ng-model="date">
-    </div>
-  </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="username">Destination</label>
+        <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="ex: Portland, OR" class="form-control input-md" ng-model="destination">
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="last_name">Origin</label>
-    <div class="col-md-4">
-    <input id="textinput" name="textinput" type="text" placeholder="ex: Seattle, WA" class="form-control input-md" ng-model="origin">
-    </div>
-  </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="email">Total Distance</label>
+        <div class="col-md-4">
+          <input id="textinput" name="textinput" type="text" placeholder="ex: 73" class="form-control input-md" ng-model="totalDistance">
+        </div>
+      </div>
 
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="username">Destination</label>
-    <div class="col-md-4">
-    <input id="textinput" name="textinput" type="text" placeholder="ex: Portland, OR" class="form-control input-md" ng-model="destination">
-    </div>
-  </div>
+      <div class="form-group" ng-controller="TourCtrl as trips">
+        <div class="col-md-8">
+          <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button" ng-click="segmentForm.addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints)">Submit »</a>
+        </div>
+      </div>
 
-
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="email">Total Distance</label>
-    <div class="col-md-4">
-    <input id="textinput" name="textinput" type="text" placeholder="ex: 73" class="form-control input-md" ng-model="totalDistance">
-    </div>
-  </div>
-
-
-  <div class="form-group" ng-controller="TourCtrl as trips">
-    <!-- <label class="col-md-4 control-label" for="button1id">Double Button</label> -->
-    <div class="col-md-8">
-      <!-- <button id="button1id" name="button1id" class="btn btn-success" ng-click="tourCreator.addLongtrip(tripName, origin, destination, year)">Submit</button>
-      <button id="button2id" name="button2id" class="btn btn-danger">Delete</button> -->
-
-      <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button" ng-click="segmentForm.addSegment(longtripsId, date, origin, destination, totalDistance, totalElevation, waypoints)">Submit »</a>
-    </div>
-  </div>
-
-</fieldset>
-</form>
-
-
-
+    </fieldset>
+  </form>
 </div>

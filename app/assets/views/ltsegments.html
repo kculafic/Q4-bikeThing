@@ -1,53 +1,33 @@
 <div class="containerTrips">
   <div ng-controller="TourCtrl as trip" >
     <div ng-controller="SegmentsCtrl as segments">
-    <div class="jumbotron">
-      <h1>{{ trip.tour.tripName }}</h1>
-      <h3>{{ trip.tour.origin }} to {{ trip.tour.destination }} </h3>
-      <p>{{ trip.tour.year }}</p>
-
-      <p>
-        <a class="btn btn-md btn-primary"  ui-sref="createsegment({ id: trip.tour.id })" role="button">Add a segment »</a>
-      </p>
-
-      <p>
-        <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a>
-      </p>
-
-      <p>
-        <a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View Segments</a>
-      </p>
-    </div>
-
-    <div class="jumbotron" ng-repeat="segment in segments.segments  ">
-      <h3>{{ segment.date | date : "MM/dd/yyyy"}}</h3>
-      <p>{{ segment.origin }} to {{ segment.destination }} </p>
-      <p>{{ segment.totalDistance }} Miles</p>
-      <!-- <p>{{ segment.totalElevation }} : totalElevation</p> -->
-
-
-      <!-- <p>
-        <a class="btn btn-md btn-primary" ng-click="showmap=true" ui-sref="#" role="button">
-          See map for this segment »
-        </a>
-      </p> -->
-
-      <p>
-        <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="segments.deleteSegment( segment.id )">Delete this segment</a>
-      </p>
-
-      <div style="width: 100%; float:center; height: 100%">
-
-       <ng-map zoom="14"  style="height:90%; width:100%" >
-         <directions
-           draggable="true"
-           travel-mode="BICYCLING"
-           origin="{{ segment.origin }}"
-           destination="{{ segment.destination }}">
-         </directions>
-       </ng-map>
+      <div class="jumbotron">
+        <h1>{{ trip.tour.tripName }}</h1>
+        <h3>{{ trip.tour.origin }} to {{ trip.tour.destination }} </h3>
+        <p>{{ trip.tour.year }}</p>
+        <p><a class="btn btn-md btn-primary"  ui-sref="createsegment({ id: trip.tour.id })" role="button">Add a segment »</a></p>
+        <p><a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a></p>
+        <p><a class="btn btn-md btn-primary"  ng-click="segments.segmentGet()" role="button">View Segments</a></p>
       </div>
 
-  </div>
+      <div class="jumbotron" ng-repeat="segment in segments.segments  ">
+        <h3>{{ segment.date | date : "MM/dd/yyyy"}}</h3>
+        <p>{{ segment.origin }} to {{ segment.destination }} </p>
+        <p>{{ segment.totalDistance }} Miles</p>
+        <p><a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="segments.deleteSegment( segment.id )">Delete this segment</a></p>
+
+        <div style="width: 100%; float:center; height: 100%">
+
+          <ng-map zoom="14"  style="height:90%; width:100%" >
+            <directions
+            draggable="true"
+            travel-mode="BICYCLING"
+            origin="{{ segment.origin }}"
+            destination="{{ segment.destination }}">
+          </directions>
+        </ng-map>
+      </div>
+
+    </div>
   </div>
 </div>

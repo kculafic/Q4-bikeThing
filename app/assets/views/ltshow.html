@@ -6,53 +6,26 @@
         <h3>{{ trips.tour.origin }} to {{ trips.tour.destination }} </h3>
         <p>{{ trips.tour.year }}</p>
         <p>
-          <p>
-            <a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a>
+          <p><a class="btn btn-md btn-primary"  ui-sref="ltindex" role="button">Back to Bike Tours »</a></p>
+          <p><a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button">Daily Segments</a></p>
+          <p><a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this Tour</a>
           </p>
 
-          <p>
-            <a class="btn btn-md btn-primary"  ui-sref="ltsegments({ id: trips.tour.id })" role="button">Daily Segments »</a>
-          </p>
-
-          <p>
-            <a class="btn btn-md btn-danger"  ui-sref="ltindex" role="button" ng-click="trips.deleteLongtrip()">Delete this trash</a>
-          </p>
-
-          <p>
-            <a class="btn btn-md btn-success"  ng-click="segments.segmentGet() " role="button">View map</a>
-          </p>
-
-
-
-
+          <p><a class="btn btn-md btn-success"  ng-click="segments.segmentGet() " role="button">View map</a></p>
         </p>
-
-        <!-- <div  >
-          <ng-map zoom="14"  style="height:90%; width:100%">
-            <directions
-            draggable="true"
-            travel-mode="BICYCLING"
-            waypoints="{{segments.getWaypoints()}}"
-            origin="{{ trips.tour.origin }}"
-            destination="{{ trips.tour.destination }}">
-          </directions>
-        </ng-map>
-      </div> -->
-
       </div>
 
-  <div>
-    <ng-map zoom="14"  style="height:90%; width:100%">
-      <directions
-      draggable="true"
-      travel-mode="BICYCLING"
-      waypoints="{{segments.getWaypoints() | orderBy: 'created_at':true}}"
-      origin="{{ trips.tour.origin }}"
-      destination="{{ trips.tour.destination }}">
-    </directions>
-  </ng-map>
-
-</div>
-</div>
-</div>
+      <div>
+        <ng-map zoom="14"  style="height:90%; width:100%">
+          <directions
+          draggable="true"
+          travel-mode="BICYCLING"
+          waypoints="{{segments.getWaypoints() | orderBy: 'created_at':true}}"
+          origin="{{ trips.tour.origin }}"
+          destination="{{ trips.tour.destination }}">
+          </directions>
+        </ng-map>
+      </div>
+    </div>
+  </div>
 </div>
