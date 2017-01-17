@@ -15,6 +15,9 @@ Providing an interface to map and visually track daily segments of longer, multi
 * Angular
 * [ng-maps](https://ngmap.github.io/)
 
+## Optimized for Mobile
+![](./stock/mobile.png)
+
 ## Next Steps:
 * Add functionality to edit trips, and to drag and save modified routes
 * Add social media component to have tours unique to each user, as well as public access to the tours of other, with room to comment and provide more route information
