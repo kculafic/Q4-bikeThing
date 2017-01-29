@@ -8,13 +8,9 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const users = require('./routes/users');
 const jwt = require('jsonwebtoken');
-
-// const routeSegments = require('./routes/routeSegments');
 const token = require('./routes/token');
 const longtrips = require('./routes/longtrips');
 const segments = require('./routes/segments');
-
-
 
 const port = process.env.PORT || 8000;
 
@@ -22,19 +18,13 @@ require('dotenv').config();
 
 const path = require('path');
 app.disable('x-powered-by');
-
-
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
-
-
 app.use(users);
 app.use(segments);
 app.use(token);
 app.use(longtrips);
-
-
 app.get('env');
 // app.use(express.static(path.join('public')));
 
